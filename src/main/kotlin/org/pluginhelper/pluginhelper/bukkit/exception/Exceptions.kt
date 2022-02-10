@@ -1,13 +1,7 @@
 package org.pluginhelper.pluginhelper.bukkit.exception
 
-import org.bukkit.command.CommandSender
-import org.bukkit.entity.Player
-import org.pluginhelper.pluginhelper.bukkit.string.message
+class NullCommandException(val error: String) : Exception(error)
 
-open class NullCommandException(player: Player, error: String) : Exception(error) {
-    init { player.message(error) }
-}
+class NullPlayerException(val error: String) : Exception(error)
 
-open class NullPlayerException(player: CommandSender, error: String) : Exception(error) {
-    init { player.message(error) }
-}
+class NullShopException(val error: String) : Exception(error)
