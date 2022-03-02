@@ -30,10 +30,7 @@ dependencies {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            groupId = "org.pluginhelper"
-            artifactId = "PluginHelper"
-            version = libraryVersion
+        create("maven", MavenPublication::class) {
             from(components["java"])
         }
     }
