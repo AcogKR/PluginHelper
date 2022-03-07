@@ -16,16 +16,6 @@ class PluginHelper : JavaPlugin() {
             "해당 플러그인은 Acog 의 개인 라이브러리 입니다.",
             "타 플러그인에는 아무 지장이 없고 주문제작된 플러그인에 API를 지원합니다."
         ).forEach(logger::info)
-
-        item(Material.AIR) {
-            meta() {
-                displayName = "test"
-                amount = 10
-                lore = listOf(
-                    "test"
-                )
-            }
-        }
     }
 
     override fun onDisable() {
