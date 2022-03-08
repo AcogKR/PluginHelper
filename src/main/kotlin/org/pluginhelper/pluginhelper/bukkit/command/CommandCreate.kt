@@ -31,5 +31,5 @@ abstract class CommandCreate : CommandExecutor {
 
     abstract fun execute(sender: CommandSender, command: Command, label: String, args: Array<out String>)
 
-    val CommandSender.player : Player? get() = if(this is Player) this else null
+    fun CommandSender.toPlayer() : Player? = if(this is Player) this else null
 }
