@@ -22,7 +22,7 @@ fun ItemStack.name() = itemMeta?.displayName ?: type.name
 fun itemOfSkull(player: OfflinePlayer?, configure: SkullMeta.() -> Unit) =
     item(Material.SKULL_ITEM, 1, 3) {
         metaOf<SkullMeta> {
-            owningPlayer = player
+            owner = player?.name
             configure(this)
         }
     }
