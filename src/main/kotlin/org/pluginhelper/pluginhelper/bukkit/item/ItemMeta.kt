@@ -22,3 +22,11 @@ inline fun ItemMeta.lore(configure: MutableList<String>.() -> Unit) {
     val newLore = (lore ?: mutableListOf()).apply(configure).map { it.colorize }
     lore = newLore
 }
+
+inline fun <reified T : ItemMeta> ItemStack.metaOf(configure: T.() -> Unit) {
+    val meta = itemMeta
+    if (meta is T) {
+        meta.configure()
+        itemMeta = meta
+    } else throw IllegalStateException("$type meta of item isn't ${T::class.java.simpleName}")
+}
