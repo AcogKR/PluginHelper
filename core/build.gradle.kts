@@ -1,5 +1,6 @@
 import kr.entree.spigradle.kotlin.spigot
 import kr.entree.spigradle.kotlin.spigotmc
+import kr.entree.spigradle.kotlin.vault
 
 plugins {
     kotlin("jvm") version "1.6.10"
@@ -15,14 +16,25 @@ tasks.compileJava.get().options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
+    vault()
     spigotmc()
 }
 
 dependencies {
     compileOnly(spigot("1.18"))
+    compileOnly(vault())
     implementation(kotlin("stdlib-jdk8"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.2")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+}
+
+
+publishing {
+    publications {
+        create("maven", MavenPublication::class) {
+            from(components["java"])
+        }
+    }
 }
 
 /*
