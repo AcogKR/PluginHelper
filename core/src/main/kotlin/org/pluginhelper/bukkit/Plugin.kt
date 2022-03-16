@@ -11,3 +11,7 @@ fun JavaPlugin.registerListener(vararg listener: Listener) = listener.forEach {
 fun JavaPlugin.registerCommand(vararg command: CommandCreate) = command.forEach {
         cmd -> getCommand(cmd.command)?.setExecutor(cmd)
 }
+
+inline fun <reified T : JavaPlugin> pluginOf(): T {
+    return JavaPlugin.getPlugin(T::class.java)
+}

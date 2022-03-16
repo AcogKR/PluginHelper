@@ -22,3 +22,9 @@ abstract class CommandCreate : CommandExecutor {
 
     fun CommandSender.toPlayer() : Player? = if(this is Player) this else null
 }
+
+/*
+reified fun pluginOf<A>(): A {
+  return JavaPlugin.getPlugin(A::class.java)
+}
+ */
