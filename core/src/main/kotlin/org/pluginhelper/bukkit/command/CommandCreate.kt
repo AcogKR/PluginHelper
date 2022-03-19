@@ -4,6 +4,10 @@ import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
+import org.pluginhelper.bukkit.exceptions.CommandArgumentNullException
+import org.pluginhelper.bukkit.exceptions.PlayerCastingException
+import org.pluginhelper.bukkit.string.colorize
+import org.pluginhelper.bukkit.string.toSend
 import java.lang.NumberFormatException
 
 abstract class CommandCreate : CommandExecutor {
@@ -14,6 +18,11 @@ abstract class CommandCreate : CommandExecutor {
         runCatching {
             execute(sender, command, label, args)
         }.recoverCatching {
+            when (it) {
+                is CommandArgumentNullException -> sender.toSend(it.message!!.colorize())
+                is PlayerCastingException -> sender.toSend(it.message!!.colorize())
+                is NumberFormatException -> sender.toSend(it.message!!.colorize())
+            }
         }
         return false
     }
@@ -23,8 +32,3 @@ abstract class CommandCreate : CommandExecutor {
     fun CommandSender.toPlayer() : Player? = if(this is Player) this else null
 }
 
-/*
-reified fun pluginOf<A>(): A {
-  return JavaPlugin.getPlugin(A::class.java)
-}
- */

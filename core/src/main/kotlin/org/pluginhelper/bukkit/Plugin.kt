@@ -1,4 +1,4 @@
-package org.pluginhelper.z.bukkit.plugin
+package org.pluginhelper.bukkit
 
 import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin

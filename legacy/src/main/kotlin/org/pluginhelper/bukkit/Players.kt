@@ -15,7 +15,7 @@ fun UUID.toOfflinePlayer() = Bukkit.getOfflinePlayer(this)
 
 fun OfflinePlayer.toPlayer() = uniqueId.toPlayer()
 
-fun Player.toOfflinePlayer() = Bukkit.getOfflinePlayer(uniqueId)
+fun Player.toOfflinePlayer(): OfflinePlayer = Bukkit.getOfflinePlayer(uniqueId)
 
 fun CommandSender.toPlayer() = this as Player
 

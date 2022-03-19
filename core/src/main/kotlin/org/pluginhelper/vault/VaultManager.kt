@@ -4,7 +4,7 @@ import net.milkbowl.vault.economy.Economy
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 
-class VaultManager(val player: Player) {
+class VaultManager(private val player: Player) {
 
     private val economy = Bukkit.getServicesManager().load(Economy::class.java)
 

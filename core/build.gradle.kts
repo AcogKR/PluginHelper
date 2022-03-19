@@ -7,6 +7,7 @@ plugins {
     id("signing")
     id("maven-publish")
     id("kr.entree.spigradle.base") version "2.3.4"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "org.pluginhelper"
@@ -16,6 +17,7 @@ tasks.compileJava.get().options.encoding = "UTF-8"
 
 repositories {
     mavenCentral()
+    mavenLocal()
     vault()
     spigotmc()
 }
