@@ -14,7 +14,9 @@ fun item(itemStack: ItemStack, amount: Int = 1, c: ItemStack.() -> Unit = {}) =
         c()
     }
 
-fun ItemStack.setDisplayName(display: String) = itemMeta?.setDisplayName(display)
+fun ItemStack.setDisplayName(display: String) {
+    itemMeta?.displayName = display
+}
 
 fun ItemStack.setLore(lore: List<String>) { itemMeta?.lore = lore }
 
