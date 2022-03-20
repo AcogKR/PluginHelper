@@ -6,7 +6,7 @@ plugins {
     kotlin("jvm") version "1.6.10"
     id("signing")
     id("maven-publish")
-    id("kr.entree.spigradle.base") version "2.3.4"
+    id("kr.entree.spigradle") version "2.3.4"
     id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
