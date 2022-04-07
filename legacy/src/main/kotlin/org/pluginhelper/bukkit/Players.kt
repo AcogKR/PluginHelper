@@ -9,7 +9,7 @@ import kotlin.collections.HashSet
 
 fun String.toPlayer() : Player? = Bukkit.getPlayer(toString())
 
-fun UUID.toPlayer() = Bukkit.getPlayer(this) ?: Bukkit.getOfflinePlayer(this)
+fun UUID.toPlayer(): Player = Bukkit.getPlayer(this)
 
 fun UUID.toOfflinePlayer() = Bukkit.getOfflinePlayer(this)
 
