@@ -5,6 +5,7 @@ import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 import org.pluginhelper.bukkit.exceptions.CommandArgumentNullException
+import org.pluginhelper.bukkit.exceptions.MessageException
 import org.pluginhelper.bukkit.exceptions.PlayerCastingException
 import org.pluginhelper.bukkit.string.colorize
 import org.pluginhelper.bukkit.string.toSend
@@ -19,9 +20,10 @@ abstract class CommandCreate : CommandExecutor {
             execute(sender, command, label, args)
         }.recoverCatching {
             when (it) {
-                is CommandArgumentNullException -> sender.toSend(it.message!!.colorize())
-                is PlayerCastingException -> sender.toSend(it.message!!.colorize())
-                is NumberFormatException -> sender.toSend(it.message!!.colorize())
+                is MessageException -> sender.toSend(it.message!!)
+                is CommandArgumentNullException -> sender.toSend(it.message!!)
+                is PlayerCastingException -> sender.toSend(it.message!!)
+                is NumberFormatException -> sender.toSend(it.message!!)
             }
         }
         return false
