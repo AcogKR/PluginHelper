@@ -1,7 +1,9 @@
-rootProject.name = "PluginHelper"
+rootProject.name = "pluginhelper"
+includeFlat("core", "plugin")
 
-include("core", "plugin", "legacy")
-
-rootProject.children.forEach {
-    it.name = "${rootProject.name}-${it.name}"
+rootProject.children.forEach { project ->
+    project.run {
+        projectDir = file("modules/${name}")
+        name = "${rootProject.name}-${name}"
+    }
 }

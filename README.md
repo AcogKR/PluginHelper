@@ -1,7 +1,6 @@
 # PluginHelper 
 
-This project is a Kotlin DSL that helps you develop Minecraft plugins.  
-Complex tasks can be easily solved. 
+## refactoring...
 
 ---
 ### groovy 
